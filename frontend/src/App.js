@@ -1,4 +1,3 @@
-import './App.css';
 import PromotionCard from './components/Promotion/Card/card';
 
 function App() {
@@ -13,12 +12,24 @@ function App() {
       {
         "id": 1,
         "comment": "TELA HD"
+      },
+      {
+        "id": 1,
+        "comment": "TELA HD"
+      },
+      {
+        "id": 1,
+        "comment": "TELA HD"
+      },
+      {
+        "id": 1,
+        "comment": "TELA HD"
       }
     ]
   };  
 
   return (
-    <div className="App">
+    <div className="App" style={{maxWidth: '800px', margin: '30px auto',}}>
       <PromotionCard promotion={promotion} />
     </div>
   );
