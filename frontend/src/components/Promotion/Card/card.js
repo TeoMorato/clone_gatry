@@ -8,8 +8,15 @@ const PromotionCard = ({ promotion }) => (
             <h1 className="promotion-card_title">{promotion.title}</h1>
             <span className="promotion-card_price"> R$ {promotion.price}</span>
             <footer className="promotion-card_footer">
-                <div className="promotion-card_comments">"{promotion.comments[0].comment}"</div>
-                <div className="promotion-card_comments-count"> {promotion.comments.length} Comentário{promotion.comments.length > 1 && 's'} </div>
+                {promotion.comments.length > 0 && (
+                    <div className="promotion-card_comments">
+                        "{promotion.comments[0].comment}"
+                    </div>
+                )}
+                
+                    <div className="promotion-card_comments-count">
+                        {promotion.comments.length} Comentário{promotion.comments.length > 1 && 's'}
+                    </div>
                 <a href={promotion.url} target="_blank" className="promotion-card_link" rel="noreferrer"> Ir Para o Site </a>
             </footer>
         </div>
