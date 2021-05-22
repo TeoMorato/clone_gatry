@@ -1,3 +1,9 @@
 .promotion-list .promotion-card {
     margin-bottom: 20px;
 }
+
+.promotion-list_carregamento, .promotion-list_efeito-carregamento {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+}

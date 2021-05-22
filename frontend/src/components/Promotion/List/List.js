@@ -1,10 +1,14 @@
 import React from 'react';
 import PromotionCard from '../Card/card';
+import ReactLoading from 'react-loading';
 import './List.css';
 
 const PromotionList = ({ loading, promotions }) => {
     if (loading) {
-        return <div>Carregando...</div>;
+        return <div className="promotion-list_carregamento">
+            Carregando
+            <ReactLoading className="promotion-list_efeito-carregamento" type={'bubbles'} color={'#000000'} height={'100px'} width={'50px'} />
+        </div>;
     }
 
     return (
