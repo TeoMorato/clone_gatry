@@ -13,7 +13,7 @@ const PromotionSearch = () => {
         if (search) {
             params.title_like = search
         }
-        axios.get('http://localhost:5000/promotions?_embed=comments', { params }).then((response) => {
+        axios.get('http://localhost:5000/promotions?_embed=comments&_order=desc&_sort=id', { params }).then((response) => {
             setPromotions(response.data);
         });
     }, [search]);

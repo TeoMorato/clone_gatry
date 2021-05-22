@@ -1,3 +1,4 @@
+import PromotionForm from "components/Promotion/Form/Form";
 import React from "react";
 import { useParams } from "react-router";
 
@@ -8,8 +9,7 @@ const PagesPromotionForm = () => {
 
     return (
         <div>
-            Form
-            {id && <div> id: {id} </div>}
+             <PromotionForm />
         </div>
     )
 };
