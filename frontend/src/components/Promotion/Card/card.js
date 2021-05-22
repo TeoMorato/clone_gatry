@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './card.css';
 
 const PromotionCard = ({ promotion }) => (
@@ -18,6 +19,7 @@ const PromotionCard = ({ promotion }) => (
                         {promotion.comments.length} Comentário{promotion.comments.length > 1 && 's'}
                     </div>
                 <a href={promotion.url} target="_blank" className="promotion-card_link" rel="noreferrer"> Ir Para o Site </a>
+                <Link to={`/edit/${promotion.id}`}>Editar</Link>
             </footer>
         </div>
     </div>

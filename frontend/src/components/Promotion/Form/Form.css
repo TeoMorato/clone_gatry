@@ -18,3 +18,26 @@
     height: 36px;
     padding: 0 10px;
 }
+
+.promotion-form_botao {
+    float: left ;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-left: 10px;
+    color: #555
+}
+
+.promotion-form_botao:hover {
+    border-color: black;
+    color: black;
+}
+
+.promotion-list_carregamento, .promotion-list_efeito-carregamento {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
