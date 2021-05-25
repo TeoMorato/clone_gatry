@@ -1,4 +1,3 @@
-import axios from "axios";
 import UIContainer from "components/UI/Container/Container";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
