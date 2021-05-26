@@ -12,6 +12,10 @@
     margin-right: 20px;
 }
 
+.promotion-card_info {
+    flex-grow: 1;
+}
+
 .promotion-card_title {
     font-size: 16px;
     color: #2C3E50;
@@ -32,12 +36,23 @@
     font-size: 16px;
     color: #95A5A6;
     font-weight: 700;
+    max-width: 345px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .promotion-card_comments-count {
     margin-left: auto;
     margin-right: 10px;
     color: #3498DB;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.promotion-card_comments-count:hover {
+    color: #2C3E50;
 }
 
 .promotion-card_link {
@@ -46,9 +61,24 @@
     color: #3498DB;
     text-decoration: none;
     padding: 8px 10px;
+    white-space: nowrap;
 }
 
 .promotion-card_link:hover {
+    color: #2C3E50;
+    border-color: #2C3E50;
+}
+
+.promotion-card_edit_button {
+    border: 1px solid #3498DB;
+    border-radius: 4px;
+    color: #3498DB;
+    text-decoration: none;
+    padding: 8px 10px;
+    margin-left: 10px;
+}
+
+.promotion-card_edit_button:hover {
     color: #2C3E50;
     border-color: #2C3E50;
 }
