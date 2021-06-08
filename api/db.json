@@ -74,6 +74,20 @@
       "promotionId": 2,
       "comment": "Testando",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "promotionId": 2,
+      "comment": "Teste",
+      "parentId": 2,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "promotionId": 2,
+      "comment": "Teste",
+      "parentId": 2,
+      "id": 6
     }
   ],
   "users": [
