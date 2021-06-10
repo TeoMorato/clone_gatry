@@ -56,7 +56,7 @@ const PromotionModal = ({ promotionId, onClickClose }) => {
     return (
         <UIModal isOpen onClickClose={onClickClose}>
             <form className="promotion-modal_comment_form" onSubmit={onSubmit}>
-                <textarea placeholder="Comentar..." onChange={(ev) => setComment(ev.target.value)} value={comment} />
+                <textarea placeholder="Comentar..." onChange={(ev) => setComment(ev.target.value)} value={comment} disabled={sendCommentInfo.loading} />
                 <button type="submit" disabled={sendCommentInfo.loading}>
                     {sendCommentInfo.loading ? 'Enviando' : 'Enviar'}
                 </button>

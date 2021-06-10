@@ -11,7 +11,7 @@ const PromotionList = ({ loading, error, promotions }) => {
         return <div>Algo de errado não está certo</div>
     }
 
-    if (loading || promotions === null) {
+    if (promotions === null) {
         return <div className="promotion-list_carregamento">
             Carregando
             <ReactLoading className="promotion-list_efeito-carregamento" type={'bubbles'} color={'#000000'} height={'100px'} width={'50px'} />
@@ -29,6 +29,7 @@ const PromotionList = ({ loading, error, promotions }) => {
             {promotions.map((promotion) => (
                 <PromotionCard promotion={promotion} onClickComments={() => setPromotionId(promotion.id)} />
             ))}
+            {loading  && <div>Carregando mais promoções...</div>}
             {promotionId && (
             <PromotionModal promotionId={promotionId} onClickClose={() => setPromotionId(null)} />
             )}
