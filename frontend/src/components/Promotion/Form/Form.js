@@ -1,9 +1,12 @@
 import UIContainer from "components/UI/Container/Container";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router";
 import ReactLoading from 'react-loading';
 import './Form.css';
 import useApi from "components/Utils/useApi";
+import Field from 'components/Form/Field/Field';
+import { Formik, Form } from "formik";
+import schema from "./schema";
 
 const initialValue = {
   title: '',
@@ -13,14 +16,10 @@ const initialValue = {
 }
 
 const PromotionForm = ({ id }) => {
-  const [values, setValues] = useState(id ? null : initialValue);
   const history = useHistory();
   const [load, loadInfo] = useApi({
     url: `/promotions/${id}`,
     method: 'get',
-    onCompleted: (response) => {
-      setValues(response.data);
-    }
   });
 
   const [save, saveInfo] = useApi({
@@ -39,18 +38,13 @@ const PromotionForm = ({ id }) => {
     }
   }, [id]);
 
-  function onChange(ev) {
-    const { name, value } = ev.target;
-
-    setValues({ ...values, [name]: value });
-  }
-
-  function onSubmit(ev) {
-    ev.preventDefault();
+  function onSubmit(formValues) {
     save({
-      data: values,
+      data: formValues,
     });
   }
+
+  const values = id ? loadInfo.data : initialValue;
 
   return (
     <UIContainer>
@@ -64,31 +58,37 @@ const PromotionForm = ({ id }) => {
                 color={'#000000'} height={'100px'} width={'50px'} />
             </div>
           ) : (
-            <form onSubmit={onSubmit}>
-              {saveInfo.loading && <span>Salvando dados...</span>}
-              <div className="promotion-form_group">
-                <label htmlFor="title">Título</label>
-                <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
-              </div>
-              <div className="promotion-form_group">
-                <label htmlFor="url">Link</label>
-                <input id="url" name="url" type="text" onChange={onChange} value={values.url} />
-              </div>
-              <div className="promotion-form_group">
-                <label htmlFor="imageUrl">Imagem (URL)</label>
-                <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} />
-              </div>
-              <div className="promotion-form_group">
-                <label htmlFor="price">Preço (Sem o R$)</label>
-                <input id="price" name="price" type="number" onChange={onChange} value={values.price} />
-              </div>
-              <div>
-                <button type="submit" className="promotion-form_botao">Salvar</button>
-              </div>
-              <a href={"/"} rel="noreferrer">
-                <button type="button" className="promotion-form_botao">Cancelar</button>
-              </a>
-            </form>
+            <Formik
+              initialValues={values}
+              onSubmit={onSubmit}
+              validationSchema={schema}
+              render={() => (
+                <Form>
+                  {saveInfo.loading && <span>Salvando dados...</span>}
+                  <div className="promotion-form_group">
+                    <Field name="title" type="text" label="Título" />
+                  </div>
+                  <div className="promotion-form_group">
+                    <Field name="url" type="text" label="Link" />
+
+                  </div>
+                  <div className="promotion-form_group">
+                    <Field name="imageUrl" type="text" label="Image (URL)" />
+
+                  </div>
+                  <div className="promotion-form_group">
+                    <Field name="price" type="number" label="Preço (Sem o R$)" />
+
+                  </div>
+                  <div>
+                    <button type="submit" className="promotion-form_botao">Salvar</button>
+                  </div>
+                  <a href={"/"} rel="noreferrer">
+                    <button type="button" className="promotion-form_botao">Cancelar</button>
+                  </a>
+                </Form>
+              )}
+            />
           )}
       </div>
     </UIContainer>

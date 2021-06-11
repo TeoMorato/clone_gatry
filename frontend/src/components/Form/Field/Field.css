@@ -1,0 +1,29 @@
+.form-field-label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-field-label:hover {
+    color: rgb(36, 35, 35);
+    cursor: help;
+}
+
+.form-field-input {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 36px;
+    padding: 0 10px;
+}
+
+.form-field-error-msg {
+    color: rgb(161, 0, 0);
+    font-size: 14px;
+}
+
+.form-field-input--has-error {
+    border-color: rgb(161, 0, 0);
+}
+
