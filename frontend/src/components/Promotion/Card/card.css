@@ -5,6 +5,7 @@
     display: flex;
     padding: 15px;
     align-items: flex-start;
+    position: relative;
 }
 
 .promotion-card_img {
@@ -55,30 +56,15 @@
     color: #2C3E50;
 }
 
-.promotion-card_link {
-    border: 1px solid #3498DB;
-    border-radius: 4px;
-    color: #3498DB;
-    text-decoration: none;
-    padding: 8px 10px;
-    white-space: nowrap;
-}
-
-.promotion-card_link:hover {
-    color: #2C3E50;
-    border-color: #2C3E50;
-}
-
 .promotion-card_edit_button {
-    border: 1px solid #3498DB;
-    border-radius: 4px;
-    color: #3498DB;
-    text-decoration: none;
-    padding: 8px 10px;
     margin-left: 10px;
 }
 
-.promotion-card_edit_button:hover {
-    color: #2C3E50;
-    border-color: #2C3E50;
+.promotion-card_delete_button {
+    border: unset;
+    background-color: unset;
+    font-size: 18px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
 }

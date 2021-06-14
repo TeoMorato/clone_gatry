@@ -7,6 +7,7 @@ import useApi from "components/Utils/useApi";
 import Field from 'components/Form/Field/Field';
 import { Formik, Form } from "formik";
 import schema from "./schema";
+import UIButton from "components/UI/Button/Button";
 
 const initialValue = {
   title: '',
@@ -36,8 +37,8 @@ const PromotionForm = ({ id }) => {
     if (id) {
       load();
     }
+    // eslint-disable-next-line
   }, [id]);
-
   function onSubmit(formValues) {
     save({
       data: formValues,
@@ -81,11 +82,9 @@ const PromotionForm = ({ id }) => {
 
                   </div>
                   <div>
-                    <button type="submit" className="promotion-form_botao">Salvar</button>
+                    <UIButton component="button" type="submit" className="promotion-form_botao">Salvar</UIButton>
+                    <a href="/"><UIButton component="button" to="/" type="button">Cancelar</UIButton></a>
                   </div>
-                  <a href={"/"} rel="noreferrer">
-                    <button type="button" className="promotion-form_botao">Cancelar</button>
-                  </a>
                 </Form>
               )}
             />

@@ -4,12 +4,13 @@ import './Search.css';
 import PromotionList from "../List/List";
 import useApi from "components/Utils/useApi";
 import UIInfiniteScroll from "components/UI/infiniteScroll/InfiniteScroll";
+import UIButton from "components/UI/Button/Button";
 
 const baseParams = {
     _embed: 'comments',
     _order: 'desc',
     _sort: 'id',
-    _limit: 2,
+    _limit: 3,
 }
 
 const PromotionSearch = () => {
@@ -35,6 +36,7 @@ const PromotionSearch = () => {
         if (!mountRef.current) {
             mountRef.current = true;
         }
+        // eslint-disable-next-line
     }, [search]);
 
     function fetchMore() {
@@ -62,7 +64,7 @@ const PromotionSearch = () => {
         <div className="promotion-search">
             <header className="promotion-search_header">
                 <h1>Promo Show</h1>
-                <Link to="/create">Nova Promoção</Link>
+                <UIButton component={Link} to="/create" theme="contained-green">Nova Promoção</UIButton>
             </header>
             <input
                 placeholder="Buscar"
@@ -71,7 +73,16 @@ const PromotionSearch = () => {
                 value={search}
                 onChange={(ev) => setSearch(ev.target.value)}
             />
-            <PromotionList promotions={loadInfo.data} loading={loadInfo.loading} error={loadInfo.error} />
+            <PromotionList
+                promotions={loadInfo.data}
+                loading={loadInfo.loading}
+                error={loadInfo.error}
+                refetch={() => {
+                    load({
+                        params: baseParams,
+                    })
+                }}
+            />
             {loadInfo.data &&
                 !loadInfo.loading &&
                 loadInfo.data?.length < loadInfo.total && (

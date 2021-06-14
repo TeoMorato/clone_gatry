@@ -51,6 +51,7 @@ const PromotionModal = ({ promotionId, onClickClose }) => {
 
     useEffect(() => {
         load();
+        // eslint-disable-next-line
     }, []);
 
     return (

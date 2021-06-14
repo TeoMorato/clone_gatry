@@ -1,8 +1,10 @@
+import UIButton from 'components/UI/Button/Button';
 import React from 'react';
+import { BiTrash } from 'react-icons/bi';
 import {Link} from 'react-router-dom';
 import './card.css';
 
-const PromotionCard = ({ promotion, onClickComments }) => (
+const PromotionCard = ({ promotion, onClickComments, onClickDelete }) => (
     <div className="promotion-card">
         <img src={promotion.imageUrl} className="promotion-card_img" alt="promotion-card-img" />
         <div className="promotion-card_info">
@@ -14,15 +16,18 @@ const PromotionCard = ({ promotion, onClickComments }) => (
                         "{promotion.comments[0].comment}"
                     </div>
                 )}
-                
+
                     <button className="promotion-card_comments-count" onClick={onClickComments}>
                         {promotion.comments.length} Comentário{promotion.comments.length > 1 && 's'}
                     </button>
-                <a href={promotion.url} target="_blank" className="promotion-card_link" rel="noreferrer"> Ir Para o Site </a>
-                <Link to={`/edit/${promotion.id}`} className="promotion-card_edit_button">Editar</Link>
+                <UIButton component="a" href={promotion.url} target="_blank" rel="noreferrer"> Ir Para o Site </UIButton>
+                <UIButton component={Link} to={`/edit/${promotion.id}`} className="promotion-card_edit_button">Editar</UIButton>
             </footer>
+            <button type="button" className="promotion-card_delete_button" onClick={onClickDelete}>
+                <BiTrash />
+            </button>
         </div>
     </div>
-)
+);
 
 export default PromotionCard;

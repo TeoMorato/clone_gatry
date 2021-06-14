@@ -22,6 +22,7 @@ const UIInfiniteScroll = ({ fetchMore }) => {
         return () => {
             observer.disconnect();
         }
+        // eslint-disable-next-line
     }, []);
 
     return <div ref={containerRef} />;

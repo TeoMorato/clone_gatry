@@ -1,0 +1,25 @@
+.ui-button {
+    background-color: unset;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ui-button:hover {
+    color: #2C3E50;
+    border-color: #2C3E50;
+    background-color: #ffffff;
+}
+
+.ui-button--bordered-blue {
+    color: #3498DB;
+    border: 1px solid currentColor;
+}
+
+.ui-button--contained-green {
+    color: #ffffff;
+    background-color: rgb(3, 85, 21);
+    border: 1px solid rgb(3, 85, 21);
+}
